@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <title>ضرب‌المثل‌های افغانی</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>لیست ضرب‌المثل‌ها</h1>
+    <a href="add.html" class="btn">➕ افزودن جدید</a>
+    <div id="proverbs"></div>
+
+    <script>
+        // دریافت لیست از API
+        fetch('http://localhost:3000/proverbs')
+            .then(res => res.json())
+            .then(data => {
+                let html = '';
+                data.forEach(p => {
+                    html += `
+                    <div class="proverb">
+                        <h3>${p.textDari}</h3>
+                        <p>${p.textPashto}</p>
+                        <p>${p.translationEn}</p>
+                        <button onclick="deleteProverb(${p.id})">حذف</button>
+                        <a href="edit.html?id=${p.id}" class="btn">ویرایش</a>
+                    </div>`;
+                });
+                document.getElementById('proverbs').innerHTML = html;
+            });
+
+        // حذف ضرب‌المثل
+        function deleteProverb(id) {
+            if (confirm('آیا مطمئنید؟')) {
+                fetch(`http://localhost:3000/proverbs/${id}`, { method: 'DELETE' })
+                    .then(() => location.reload());
+            }
+        }
+    </script>
+</body>
+</html>
