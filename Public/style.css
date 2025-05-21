@@ -1,25 +1,26 @@
 body {
-    font-family: Arial;
-    padding: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 30px;
     direction: rtl;
+    background-color: #f09b9e;
 }
 .proverb {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin: 10px;
+    border: 6px solid #f2aaaa;
+    padding: 20px;
+    margin: 20px;
 }
 .btn {
     display: inline-block;
-    padding: 5px 10px;
-    background: #007bff;
+    padding: 14px 19px;
+    background: #717171;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
-    margin: 5px;
+    border-radius: 10px;
+    margin: 70px;
 }
 input {
     display: block;
-    margin: 10px 0;
-    padding: 8px;
-    width: 300px;
+    margin: 18px 0;
+    padding: 12px;
+    width: 400px;
 }

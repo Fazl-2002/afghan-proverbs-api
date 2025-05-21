@@ -4,13 +4,13 @@
     <title>ضرب‌المثل‌های افغانی</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body><center>
     <h1>لیست ضرب‌المثل‌ها</h1>
     <a href="add.html" class="btn">➕ افزودن جدید</a>
     <div id="proverbs"></div>
 
     <script>
-        // دریافت لیست از API
+        
         fetch('http://localhost:3000/proverbs')
             .then(res => res.json())
             .then(data => {
@@ -28,13 +28,13 @@
                 document.getElementById('proverbs').innerHTML = html;
             });
 
-        // حذف ضرب‌المثل
+        
         function deleteProverb(id) {
             if (confirm('آیا مطمئنید؟')) {
                 fetch(`http://localhost:3000/proverbs/${id}`, { method: 'DELETE' })
                     .then(() => location.reload());
             }
         }
-    </script>
+    </script></center>
 </body>
 </html>
